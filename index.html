@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Task8</title>
+	</head>
+	<body>
+		<label>
+			手机号
+			<input type="text" id="p-text" />
+			<button id="p-submit">Submit</button>
+			<div id="p-put"></div>
+		</label>
+		<label>
+			相邻字符串
+			<input type="text" id="s-text" />
+			<button id="s-submit">Submit</button>
+			<div id="s-put"></div>
+		</label>
+		<script>
+			var Ptexts = document.getElementById("p-text");
+			var Psub = document.getElementById("p-submit");
+			var Pshow = document.getElementById("p-put");
+			Ptexts.onblur = function() {
+				var val = Ptexts.value;
+				var result = /1[34578]\d{9}/.test(val);
+				if (result) {
+					Pshow.style.color = 'black';
+					Pshow.innerHTML = 'true';
+				} else {
+					Pshow.style.color = 'red';
+					Pshow.innerHTML = 'false';
+				}
+			}
+			
+			var Stexts = document.getElementById("s-text");
+			var Ssub = document.getElementById("s-submit");
+			var Sshow = document.getElementById("s-put");
+			Stexts.onblur = function() {
+				var val = Stexts.value;
+				var result = /\b(\w+)\b\s+\1\b/.test(val);
+				if (result) {
+					Sshow.style.color = 'black';
+					Sshow.innerHTML = 'true';
+				} else {
+					Sshow.style.color = 'red';
+					Sshow.innerHTML = 'false';
+				}
+			}
+		</script>
+	</body>
+</html>
